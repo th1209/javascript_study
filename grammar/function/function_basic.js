@@ -1,42 +1,4 @@
 /******************************************************
- 関数の定義方法3つ
- ******************************************************/
-
-//1.functionキーワードを使う方法(静的)
-function triangle1(base,height){
-    return base * height / 2;
-}
-console.log(triangle1(10,2));
-
-//2.functionリテラルを使う方法(動的)
-var triangle2 = function(base,height){
-    return base * height / 2;
-};
-console.log(triangle2(10,2));
-
-//3.Functionオブジェクト(組み込みオブジェクト)を使う方法(動的)
-//この方法は、あまりメジャーでないかも。
-var triangle3 = new Function('base','height','return base * height / 2;');
-console.log(triangle3(10,2));
-
-
-/******************************************************
- varキーワードを必ず付ける
- ******************************************************/
-
-//以下NG例。グローバル変数を関数内で上書きしてしまう。
-var globalVal = 100;
-
-function overwriteGlobal(){
-    globalVal = 200;    //ここがダメ
-    return globalVal++;
-}
-
-console.log(overwriteGlobal());
-console.log(globalVal); //201(グローバル変数が上書きされてしまう)
-
-
-/******************************************************
  参照渡し
  以下URLがとても詳しい
  http://qiita.com/migi/items/3417c2de685c368faab1
